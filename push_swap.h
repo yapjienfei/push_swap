@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/31 19:43:06 by user              #+#    #+#             */
-/*   Updated: 2026/05/31 23:16:53 by user             ###   ########.fr       */
+/*   Updated: 2026/06/01 00:29:07 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ t_cost	calculate_cost(t_stack *a, t_stack *b, int a_idx, int target);
 int		find_cheapest(t_stack *a, t_stack *b, t_cost *best_cost);
 void	push_all_but_three(t_stack *a, t_stack *b);
 
-int		error_and_free(int *temp);
 void	sort_push_swap(t_stack *a, t_stack *b);
 void	print_op(char *op);
 void	execute_rotations(t_stack *a, t_stack *b, t_cost cost);

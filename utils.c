@@ -6,12 +6,13 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/31 19:41:01 by user              #+#    #+#             */
-/*   Updated: 2026/05/31 20:12:53 by user             ###   ########.fr       */
+/*   Updated: 2026/06/01 00:22:09 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <limits.h>
+#include <unistd.h>
 
 t_stack	*init_stack(int capacity)
 {
@@ -41,16 +42,24 @@ void	free_stack(t_stack *s)
 	}
 }
 
-int	is_sorted(t_stack *a)
+void	ft_putstr_fd(char *s, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (i < a->size - 1)
+	if (!s)
+		return ;
+	while (*s)
 	{
-		if (a->arr[i] > a->arr[i + 1])
-			return (0);
-		i++;
+		write(fd, s, 1);
+		s++;
 	}
-	return (1);
+}
+
+void	print_error(void)
+{
+	ft_putstr_fd("Error\n", 2);
+}
+
+void	print_op(char *op)
+{
+	ft_putstr_fd(op, 1);
+	ft_putstr_fd("\n", 1);
 }

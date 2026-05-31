@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/31 20:13:19 by user              #+#    #+#             */
-/*   Updated: 2026/05/31 20:43:02 by user             ###   ########.fr       */
+/*   Updated: 2026/06/01 00:21:39 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,5 @@ int	parse_int(const char *str, int *out)
 		return (0);
 	if (out)
 		*out = (int)num;
-	return (1);
-}
-
-int	error_and_free(int *temp)
-{
-	free(temp);
-	print_error();
 	return (1);
 }

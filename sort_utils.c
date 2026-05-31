@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort5.c                                            :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/31 20:08:19 by user              #+#    #+#             */
-/*   Updated: 2026/05/31 23:49:06 by user             ###   ########.fr       */
+/*   Updated: 2026/06/01 00:29:03 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	find_max_index(t_stack *a)
+static int	find_max_index(t_stack *s)
 {
 	int	n;
 	int	i;
 
-	n = a->size;
+	n = s->size;
 	i = 0;
 	while (i < n)
 	{
-		if (a->arr[i] > a->arr[(i + 1) % n])
+		if (s->arr[i] > s->arr[(i + 1) % n])
 			return (i);
 		i++;
 	}
