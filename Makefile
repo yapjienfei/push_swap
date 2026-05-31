@@ -1,9 +1,15 @@
 NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+RM = rm -f
 
-SRC =	push_swap.c operations_reverse_rotate.c operations_swap_push.c utils.c utils_2.c
-		
+SRC = push_swap.c \
+      operations_rotate.c \
+      operations_reverse_rotate.c \
+      operations_swap_push.c \
+      utils.c utils2.c utils3.c \
+      sort.c sort2.c sort3.c sort4.c sort5.c
+
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
@@ -12,10 +18,10 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 
 clean:
-	rm -f $(OBJ)
+	$(RM) $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
