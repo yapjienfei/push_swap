@@ -6,68 +6,44 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/31 19:40:40 by user              #+#    #+#             */
-/*   Updated: 2026/05/31 19:42:06 by user             ###   ########.fr       */
+/*   Updated: 2026/05/31 21:52:56 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_stack *a)
+static void	reverse_rotate_stack(t_stack *s)
 {
 	int	tmp;
 	int	i;
 
-	if (a->size < 2)
+	if (s->size < 2)
 		return ;
-	tmp = a->arr[a->size - 1];
-	i = a->size - 1;
+	tmp = s->arr[s->size - 1];
+	i = s->size - 1;
 	while (i > 0)
 	{
-		a->arr[i] = a->arr[i - 1];
+		s->arr[i] = s->arr[i - 1];
 		i--;
 	}
-	a->arr[0] = tmp;
+	s->arr[0] = tmp;
+}
+
+void	rra(t_stack *a)
+{
+	reverse_rotate_stack(a);
 	print_op("rra");
 }
 
 void	rrb(t_stack *b)
 {
-	int	tmp;
-	int	i;
-
-	if (b->size < 2)
-		return ;
-	tmp = b->arr[b->size - 1];
-	i = b->size - 1;
-	while (i > 0)
-	{
-		b->arr[i] = b->arr[i - 1];
-		i--;
-	}
-	b->arr[0] = tmp;
+	reverse_rotate_stack(b);
 	print_op("rrb");
 }
 
 void	rrr(t_stack *a, t_stack *b)
 {
-	int	tmp;
-	int	i;
-
-	if (a->size >= 2)
-	{
-		tmp = a->arr[a->size - 1];
-		i = a->size - 1;
-		while (i-- > 0)
-			a->arr[i] = a->arr[i - 1];
-		a->arr[0] = tmp;
-	}
-	if (b->size >= 2)
-	{
-		tmp = b->arr[b->size - 1];
-		i = b->size - 1;
-		while (i-- > 0)
-			b->arr[i] = b->arr[i - 1];
-		b->arr[0] = tmp;
-	}
+	reverse_rotate_stack(a);
+	reverse_rotate_stack(b);
 	print_op("rrr");
 }

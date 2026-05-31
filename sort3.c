@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/31 19:40:56 by user              #+#    #+#             */
-/*   Updated: 2026/05/31 21:01:44 by user             ###   ########.fr       */
+/*   Updated: 2026/05/31 21:47:30 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ void	sort_three(t_stack *a)
 	else if (y > x && x > z)
 		rra(a);
 	else if (y > z && z > x)
-		sa(a);
-	else if (z > x && x > y)
 	{
+		rra(a);
 		sa(a);
-		ra(a);
 	}
+	else if (z > x && x > y)
+		sa(a);
 }
 
 int	find_min_index(t_stack *s)
@@ -67,21 +67,20 @@ int	find_min_index(t_stack *s)
 	return (min_idx);
 }
 
+/* FIX: recalculate min_idx each iteration so direction is always current */
 void	sort_five(t_stack *a, t_stack *b)
 {
-	int	min;
+	int	min_idx;
 
 	while (a->size > 3)
 	{
-		min = find_min_index(a);
-		while (a->arr[0] != a->arr[min])
-		{
-			if (min <= a->size / 2)
-				ra(a);
-			else
-				rra(a);
-		}
-		pb(a, b);
+		min_idx = find_min_index(a);
+		if (min_idx == 0)
+			pb(a, b);
+		else if (min_idx <= a->size / 2)
+			ra(a);
+		else
+			rra(a);
 	}
 	sort_three(a);
 	push_back(a, b);

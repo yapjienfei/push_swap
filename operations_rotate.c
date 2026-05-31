@@ -6,68 +6,44 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/31 19:40:43 by user              #+#    #+#             */
-/*   Updated: 2026/05/31 19:42:44 by user             ###   ########.fr       */
+/*   Updated: 2026/05/31 21:51:46 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_stack *a)
+static void	rotate_stack(t_stack *s)
 {
 	int	tmp;
 	int	i;
 
-	if (a->size < 2)
+	if (s->size < 2)
 		return ;
-	tmp = a->arr[0];
+	tmp = s->arr[0];
 	i = 0;
-	while (i < a->size - 1)
+	while (i < s->size - 1)
 	{
-		a->arr[i] = a->arr[i + 1];
+		s->arr[i] = s->arr[i + 1];
 		i++;
 	}
-	a->arr[a->size - 1] = tmp;
+	s->arr[s->size - 1] = tmp;
+}
+
+void	ra(t_stack *a)
+{
+	rotate_stack(a);
 	print_op("ra");
 }
 
 void	rb(t_stack *b)
 {
-	int	tmp;
-	int	i;
-
-	if (b->size < 2)
-		return ;
-	tmp = b->arr[0];
-	i = 0;
-	while (i < b->size - 1)
-	{
-		b->arr[i] = b->arr[i + 1];
-		i++;
-	}
-	b->arr[b->size - 1] = tmp;
+	rotate_stack(b);
 	print_op("rb");
 }
 
 void	rr(t_stack *a, t_stack *b)
 {
-	int	tmp;
-	int	i;
-
-	if (a->size >= 2)
-	{
-		tmp = a->arr[0];
-		i = 0;
-		while (i++ < a->size - 1)
-			a->arr[i] = a->arr[i + 1];
-		a->arr[a->size - 1] = tmp;
-	}
-	if (b->size >= 2)
-	{
-		tmp = b->arr[0];
-		i = 0;
-		while (i++ < b->size - 1)
-			b->arr[i] = b->arr[i + 1];
-		b->arr[b->size - 1] = tmp;
-	}
+	rotate_stack(a);
+	rotate_stack(b);
 	print_op("rr");
 }

@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/31 19:40:51 by user              #+#    #+#             */
-/*   Updated: 2026/05/31 20:41:05 by user             ###   ########.fr       */
+/*   Updated: 2026/05/31 23:29:22 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_cost	case_independent(int a_up, int a_down, int b_up, int b_down)
 {
 	t_cost	cost;
 
-	cost.total = 0;
+	cost.total = 1;
 	if (a_up <= a_down)
 	{
 		cost.rot_a = a_up;

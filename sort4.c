@@ -6,7 +6,7 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/31 20:08:17 by user              #+#    #+#             */
-/*   Updated: 2026/05/31 20:09:54 by user             ###   ########.fr       */
+/*   Updated: 2026/05/31 23:16:48 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,25 +59,4 @@ int	get_target_in_b(t_stack *b, int val)
 	if (find_largest_smaller(b, val, &idx))
 		return (idx);
 	return (find_largest_overall(b));
-}
-
-void	rot_min_to_top(t_stack *a)
-{
-	int	min_idx;
-	int	up;
-	int	down;
-
-	min_idx = find_min_index(a);
-	up = min_idx;
-	down = a->size - min_idx;
-	if (up <= down)
-	{
-		while (up-- > 0)
-			ra(a);
-	}
-	else
-	{
-		while (down-- > 0)
-			rra(a);
-	}
 }
